@@ -4,12 +4,12 @@ function classify() {
   $.post("/classify", data, function(data, status){
     var img = document.getElementById('sentimentImg')
     if (data.probability <= 0.65) {
-      img.setAttribute('src', 'static/img/neutral.svg');
+      img.setAttribute('src', 'static/img/neutral.png');
     }
     else if (data.sentiment == 'Positive') {
       img.setAttribute('src', 'static/img/happy.svg');
     } else {
-      img.setAttribute('src', 'static/img/sad.svg');
+      img.setAttribute('src', 'static/img/negative.png');
     }
     document.getElementById('probText').textContent = '(' + data.sentiment + ' with probability: ' + data.probability + '%)'
   }, "json");
